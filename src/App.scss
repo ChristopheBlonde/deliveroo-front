@@ -63,12 +63,12 @@ header {
 /* content */
 section {
   .tabMeals {
-    width: 70%;
+    width: 75%;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     .meal {
-      width: 400px;
+      width: 350px;
       height: 160px;
       display: flex;
       justify-content: space-between;
@@ -102,6 +102,38 @@ section {
         object-fit: cover;
         border-radius: 5px;
       }
+    }
+  }
+}
+
+/* Media queries */
+
+@media (max-width: 1024px) {
+  h3 {
+    margin-left: 50px;
+  }
+  .restaurant {
+    flex-direction: column;
+    align-items: center;
+
+    .description {
+      min-width: 100%;
+
+      text-align: center;
+    }
+    img {
+      min-width: 50%;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+  .tabMeals {
+    max-width: 60%;
+    margin-left: 50px;
+    .meal {
+      min-width: 380px;
     }
   }
 }
