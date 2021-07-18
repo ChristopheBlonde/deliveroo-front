@@ -42,7 +42,7 @@ const Basket = (props) => {
     <div className="basket">
       <form className="cart">
         <button
-          classname={meals.length !== 0 ? "cartNotEmpty" : null}
+          className={meals.length !== 0 ? "cartNotEmpty" : null}
           type="sumit"
         >
           Valider mon Panier
