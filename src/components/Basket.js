@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import formatPrice from "../helpers/formatPrice";
 
 const Basket = (props) => {
   const { meals, setCart } = props;
@@ -55,53 +56,35 @@ const Basket = (props) => {
                 <div className="dish" key={meal.id}>
                   <div>
                     <FontAwesomeIcon
+                      className="iconCart"
                       onClick={() => cartMealIncrement(meal.id)}
                       icon="plus-circle"
                     />{" "}
                     <span>{meal.quantity}</span>{" "}
                     <FontAwesomeIcon
+                      className="iconCart"
                       onClick={() => cartMealDecrement(meal.id)}
                       icon="minus-circle"
                     />{" "}
                     {meal.title}
                   </div>
-                  <span>
-                    {Intl.NumberFormat("fr-Fr", {
-                      style: "currency",
-                      currency: "EUR",
-                    }).format(priceCart(meal))}
-                  </span>
+                  <span>{formatPrice(priceCart(meal))}</span>
                 </div>
               ))}
               <div className="subTotal">
                 <label htmlFor="sousTotal">
                   Sous-total
-                  <span>
-                    {Intl.NumberFormat("fr-Fr", {
-                      style: "currency",
-                      currency: "EUR",
-                    }).format(totalCart)}
-                  </span>
+                  <span>{formatPrice(totalCart)}</span>
                 </label>
                 <label htmlFor="livraison">
                   Frais de livraison
-                  <span>
-                    {Intl.NumberFormat("fr-Fr", {
-                      style: "currency",
-                      currency: "EUR",
-                    }).format(transportPrice)}
-                  </span>
+                  <span>{formatPrice(transportPrice)}</span>
                 </label>
               </div>
               <div className="totalPrices">
                 <label htmlFor="total">
                   Total
-                  <span>
-                    {Intl.NumberFormat("fr-Fr", {
-                      style: "currency",
-                      currency: "EUR",
-                    }).format(totalCart + transportPrice)}
-                  </span>
+                  <span>{formatPrice(totalCart + transportPrice)}</span>
                 </label>
               </div>
             </>

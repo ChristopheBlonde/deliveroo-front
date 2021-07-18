@@ -131,6 +131,10 @@ section {
   background-color: white;
   padding: 15px;
   border-radius: 5px;
+  position: sticky;
+  right: 100px;
+  top: 40px;
+
   .cart {
     display: flex;
     flex-direction: column;
@@ -145,6 +149,9 @@ section {
     }
     .dishes {
       margin: 10px 0;
+    }
+    .iconCart {
+      color: #02cdbd;
     }
     .cartNotEmpty {
       color: white;
