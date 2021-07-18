@@ -1,18 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Meals = (props) => {
-  const { category } = props;
+  const { category, dishSelected } = props;
   return (
     <div className="tabMeals">
-      {category.map((meals, index) => {
+      {category.map((meal) => {
         return (
-          <div className="meal" key={index}>
+          <div
+            className="meal"
+            key={meal.id}
+            onClick={() => dishSelected(meal)}
+          >
             <div className="descrip">
-              <h4>{meals.title}</h4>
-              <p>{meals.description}</p>
+              <h4>{meal.title}</h4>
+              <p>{meal.description}</p>
               <div className="price">
-                <span>{meals.price} €</span>
-                {meals.popular ? (
+                <span>{meal.price} €</span>
+                {meal.popular ? (
                   <span>
                     <FontAwesomeIcon icon="star" /> Populaire
                   </span>
@@ -21,7 +25,7 @@ const Meals = (props) => {
                 )}
               </div>
             </div>
-            <img src={meals.picture} alt="" />
+            {meal.picture && <img src={meal.picture} alt={`${meal.title}`} />}
           </div>
         );
       })}
